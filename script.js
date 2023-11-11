@@ -1,12 +1,12 @@
-// Replace 'YOUR_API_ENDPOINT' with the actual API endpoint.
-const apiEndpoint = 'YOUR_API_ENDPOINT';
+// Quotable API endpoint
+const apiEndpoint = 'https://api.quotable.io/random';
 
-// Function to fetch a random quote from the API
+// Function to fetch a random quote from the Quotable API
 async function fetchQuote() {
     try {
         const response = await fetch(apiEndpoint);
         const data = await response.json();
-        return data.quote; // Adjust this based on the structure of the API response
+        return data.content; // Assuming the quote is located in the 'content' property
     } catch (error) {
         console.error('Error fetching quote:', error);
         return 'Failed to fetch quote';
@@ -20,7 +20,7 @@ async function updateQuote() {
     quoteContainer.innerHTML = `<p>${quote}</p>`;
 }
 
-// Optional: Function for manual quote generation
+// Function for manual quote generation
 function generateQuote() {
     updateQuote();
 }
